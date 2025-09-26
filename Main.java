@@ -15,7 +15,8 @@ public class Main {
         System.out.println("------To-Do List Tracker-----");
         System.out.println(" 1 : Add mission ");
         System.out.println(" 2 : List active missions ");
-        System.out.println(" 3 : Close ");
+        System.out.println(" 3 : Choose a mission number to remove it from the list ");
+        System.out.println(" 4 : Close ");
         System.out.println("------- your choose :---------");
         // taking user input.
         int input = scanner.nextInt();
@@ -35,16 +36,33 @@ public class Main {
         	}
         	else {
         	for (int i = 0; i < missions.size() ; i++) {
-        		System.out.println((1 + i) + "." + missions.get(i));
+        		System.out.println((1 + i) + ")" + missions.get(i));
         	}
         	}
         	break;
-        case 3 :
+        case 3 : 
+        	System.out.println("Please write the number of mission that you want to remove: ");
+        	int inputRemove = scanner.nextInt();
+        	scanner.nextLine();
+        	// check if given number is in missions if yes remove it.
+        	if (inputRemove > 0 && inputRemove <= missions.size() ) {
+        		System.out.println(inputRemove + " . mission succesfully deleted.");
+        		missions.remove(inputRemove - 1);
+        	}
+        	
+        	else {
+        		System.out.println("Given number is not in the list! ");
+        	}
+        
+        
+            break;
+        case 4 :
+        	System.out.println("Program closing thanks for using :) ");
         	programActive = false ;
         	break;
         
         default :
-        	System.out.println(" Please choose from only 1 , 2 ,3 !");
+        	System.out.println(" Please choose from only 1 , 2 ,3 , 4 !");
         	break;
         	
         }  
@@ -52,4 +70,5 @@ public class Main {
         scanner.close();
     }
 }
+
 
